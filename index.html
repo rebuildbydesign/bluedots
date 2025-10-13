@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Blue Dots NYC – Interactive Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+<!-- Sidebar Layer Toggle -->
+<div id="sidebar">
+  <h3>Layers</h3>
+    <label><input type="checkbox" id="toggle-bluedots" checked> Blue Dots</label><br />
+  <label><input type="checkbox" id="toggle-sewersheds" checked> Gowanus Sewershed</label><br />
+  <label><input type="checkbox" id="toggle-drainage" checked> Sewer Drainage Areas</label><br />
+  <label><input type="checkbox" id="toggle-outfalls" checked> CSO Outfalls</label>
+</div>
+
+<!-- Floating Title + CTA -->
+<div id="title-box">
+  <h2>Blue Dots NYC: Gowanus Pilot Map</h2>
+  <p>
+    Discover how neighbors across the Gowanus watershed are reducing flooding and combined sewer overflows.  
+    <strong>Add your Blue Dot</strong> by sharing your stormwater action—like a rain barrel or tree bed expansion—and help protect our canal.
+  </p>
+</div>
+
+<!-- Legend -->
+<div id="legend">
+  <h4>Legend</h4>
+  <div><span class="legend-dot small"></span> Small Dot (1–500 gal)</div>
+  <div><span class="legend-dot medium"></span> Medium Dot (501–5,000 gal)</div>
+  <div><span class="legend-dot large"></span> Large Dot (5,000+ gal)</div>
+  <div><span class="legend-cso"></span> CSO Outfall</div>
+  <div><span class="legend-drainage"></span> Sewer Drainage Area</div>
+  <div><span class="legend-sewershed"></span> Gowanus Sewershed</div>
+</div>
+
+
+  <script src="scripts.js"></script>
+</body>
+</html>
