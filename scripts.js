@@ -182,4 +182,31 @@ map.on('load', () => {
 
   document.getElementById('toggle-bluedots').onchange = (e) =>
     map.setLayoutProperty('bluedots', 'visibility', e.target.checked ? 'visible' : 'none');
+
+    // === Animated Gallon Counter ===
+  fetch('data/bluedots.geojson')
+    .then(res => res.json())
+    .then(data => {
+      const totalGallons = data.features.reduce((sum, f) => {
+        const gallons = parseFloat(f.properties.cso_reduction_gallons);
+        return sum + (isNaN(gallons) ? 0 : gallons);
+      }, 0);
+
+      // Animate the counter
+      let current = 0;
+      const increment = totalGallons / 100;
+      const counterEl = document.getElementById('counter-number');
+
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= totalGallons) {
+          current = totalGallons;
+          clearInterval(interval);
+        }
+        counterEl.textContent = Math.floor(current).toLocaleString('en-US');
+      }, 20);
+    });
+
+
 });
+
