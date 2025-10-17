@@ -137,7 +137,7 @@ map.on('load', () => {
     type: 'circle',
     source: 'bluedots',
     paint: {
-      'circle-color': '#1f78b4',
+      'circle-color': '#00cae8',
       'circle-radius': [
         'match',
         ['get', 'dot_size'],

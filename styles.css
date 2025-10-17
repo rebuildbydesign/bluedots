@@ -20,7 +20,7 @@ body, html {
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-  font-size: 13px;
+  font-size: 12px;
   z-index: 2;
 }
 
@@ -29,7 +29,7 @@ body, html {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 320px;
+  width: 450px;
   background: rgba(255,255,255,0.95);
   padding: 15px;
   border-radius: 6px;
@@ -39,8 +39,8 @@ body, html {
 
 #title-box h2 {
   margin: 0 0 6px 0;
-  font-size: 18px;
-  color: #2b8cbe;
+  font-size: 25px;
+  color: #00cae8;
 }
 
 #title-box p {
@@ -52,7 +52,7 @@ body, html {
 /* Legend */
 #legend {
   position: absolute;
-  bottom: 35px;
+  bottom: 30px;
   right: 20px;
   background: white;
   padding: 10px;
@@ -65,7 +65,7 @@ body, html {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: #1f78b4;
+  background: #00cae8;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -106,9 +106,9 @@ body, html {
 /* === Gallon Counter (Top Right) === */
 #gallon-counter {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.9);
+  top: 180px;
+  left: 20px;
+  background: #00cae8;
   border-radius: 10px;
   padding: 15px 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
@@ -116,28 +116,27 @@ body, html {
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   z-index: 2;
   width: 240px;
-  border-top: 5px solid #1f78b4;
+  border-top: 5px solid #00cae8;
 }
 
 .counter-label {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #555;
+  color: #fff;
   margin-bottom: 5px;
 }
 
 #counter-number {
   font-size: 26px;
   font-weight: 700;
-  color: #1f78b4;
-  text-shadow: 0 0 4px rgba(31, 120, 180, 0.2);
+  color: #fff;
   transition: all 0.5s ease-in-out;
 }
 
 .counter-sub {
   font-size: 12px;
-  color: #666;
+  color: #fff;
   font-style: italic;
   margin-top: 4px;
 }
