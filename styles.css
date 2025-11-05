@@ -40,7 +40,7 @@ body, html {
 #title-box h2 {
   margin: 0 0 6px 0;
   font-size: 25px;
-  color: #00cae8;
+  color: #1c88f6;
 }
 
 #title-box p {
@@ -65,7 +65,7 @@ body, html {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: #00cae8;
+  background: #1c88f6;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -116,7 +116,7 @@ body, html {
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   z-index: 2;
   width: 240px;
-  border-top: 5px solid #00cae8;
+  border-top: 5px solid #1c88f6;
 }
 
 .counter-label {
