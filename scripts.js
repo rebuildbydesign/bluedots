@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiajAwYnkiLCJhIjoiY2x1bHUzbXZnMGhuczJxcG83YXY4c
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/j00by/cm60z8amk005801qvfi826b4d',
-  center: [-73.98900, 40.67205],
+  center: [-73.98500, 40.67005],
   zoom: 14.5
 });
 
@@ -207,6 +207,16 @@ map.on('load', () => {
       }, 20);
     });
 
+// === Mobile Info Popup Toggle ===
+const infoBtn = document.getElementById('map-info-btn');
+const infoPopup = document.getElementById('map-info-popup');
+
+if (infoBtn && infoPopup) {
+  infoBtn.onclick = () => {
+    infoPopup.style.display =
+      infoPopup.style.display === 'block' ? 'none' : 'block';
+  };
+}
 
 });
 

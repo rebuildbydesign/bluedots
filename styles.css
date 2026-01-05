@@ -106,8 +106,8 @@ body, html {
 /* === Gallon Counter (Top Right) === */
 #gallon-counter {
   position: absolute;
-  top: 180px;
-  left: 20px;
+  top: 20px;
+  right: 20px;
   background: #1c88f6;
   border-radius: 10px;
   padding: 15px 20px;
@@ -195,7 +195,7 @@ body, html {
 
   /* TITLE */
   #title-box {
-    width: 80%;
+    width: 65%;
     left: 10px;
     top: 10px;
     padding: 12px;
@@ -206,7 +206,7 @@ body, html {
 
   /* GALLON COUNTER — smaller, NOT full width */
   #gallon-counter {
-    top: 160px;
+    top: 70px;
     left: 10px;
     width: 180px;      /* fixed small card */
     height: 60px;
@@ -234,5 +234,84 @@ body, html {
     padding: 8px;
   }
 }
+
+}
+
+/* ============================
+   📱 MOBILE INFO BUTTON
+   ============================ */
+/* ============================
+   📱 MOBILE INFO (LEGEND STYLE)
+   ============================ */
+
+#map-info-btn {
+  display: none;
+}
+
+#map-info-popup {
+  display: none;
+}
+
+@media (max-width: 600px) {
+
+  #map-info-btn {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+
+  #map-info-popup {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    width: 200px;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    z-index: 3;
+  }
+
+  .info-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1c88f6;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .info-item span {
+    margin-right: 6px;
+  }
+}
+
+
+
+/* ============================
+   📱 MOBILE: HIDE CONTROLS
+   ============================ */
+@media (max-width: 600px) {
+
+  #sidebar,
+  #legend {
+    display: none;
+  }
 
 }
