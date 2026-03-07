@@ -9,42 +9,86 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="map"></div>
+<!-- Header Bar -->
+<header id="header-bar">
+  <div class="header-left">
+    <h1 class="header-title">Blue Dots NYC</h1>
+    <span class="header-subtitle">Gowanus Pilot Map</span>
+  </div>
+  <div class="header-right">
+    <span class="stat-number" id="counter-number">0</span>
+    <span class="stat-label">gallons diverted</span>
+    <span class="stat-tagline">Kept out of the sewer system</span>
+  </div>
+</header>
 
-<!-- Sidebar Layer Toggle -->
-<div id="sidebar">
-  <h3>Layers</h3>
-    <label><input type="checkbox" id="toggle-bluedots" checked> Blue Dots</label><br />
-  <label><input type="checkbox" id="toggle-sewersheds" checked> Gowanus Sewershed</label><br />
-  <label><input type="checkbox" id="toggle-drainage" checked> Sewer Drainage Areas</label><br />
-  <label><input type="checkbox" id="toggle-outfalls" checked> CSO Outfalls</label>
-</div>
+<div id="map"></div>
 
-<!-- Floating Title + CTA -->
-<div id="title-box">
-  <h2>Blue Dots NYC: Gowanus Pilot Map</h2>
-  <!-- <p>
-    Discover how neighbors across the Gowanus watershed are reducing flooding and combined sewer overflows.  
-    <strong>Add your Blue Dot</strong> by sharing your stormwater action—like a rain barrel or tree bed expansion—and help protect our canal.
-  </p> -->
-</div>
+<!-- Unified Legend + Layer Panel -->
+<div id="legend-panel">
+  <h4>Map Layers</h4>
 
-<!-- Legend -->
-<div id="legend">
-  <h4>Legend</h4>
-  <div><span class="legend-dot small"></span> Small Dot (1–500 gal)</div>
-  <div><span class="legend-dot medium"></span> Medium Dot (501–5,000 gal)</div>
-  <div><span class="legend-dot large"></span> Large Dot (5,000+ gal)</div>
-  <div><span class="legend-cso"></span> CSO Outfall</div>
-  <div><span class="legend-drainage"></span> Sewer Drainage Area</div>
-  <div><span class="legend-sewershed"></span> Gowanus Sewershed</div>
-</div>
+  <label class="layer-row" id="toggle-bluedots-row">
+    <input type="checkbox" id="toggle-bluedots" checked>
+    <span class="layer-swatch">
+      <span class="legend-dot medium"></span>
+    </span>
+    <span class="layer-info">
+      <span class="layer-name">Blue Dots</span>
+      <span class="layer-desc">Resident stormwater projects</span>
+    </span>
+  </label>
 
-<!-- Gallon Counter -->
-<div id="gallon-counter">
-  <div class="counter-label">Total Gallons Diverted</div>
-  <div id="counter-number">0</div>
-  <div class="counter-sub">Kept out of the sewer system</div>
+  <label class="layer-row" id="toggle-outfalls-row">
+    <input type="checkbox" id="toggle-outfalls" checked>
+    <span class="layer-swatch">
+      <span class="legend-cso"></span>
+    </span>
+    <span class="layer-info">
+      <span class="layer-name">CSO Outfalls</span>
+      <span class="layer-desc">Combined sewer overflow points</span>
+    </span>
+  </label>
+
+  <label class="layer-row" id="toggle-drainage-row">
+    <input type="checkbox" id="toggle-drainage" checked>
+    <span class="layer-swatch">
+      <span class="legend-drainage"></span>
+    </span>
+    <span class="layer-info">
+      <span class="layer-name">OH-006 Drainage</span>
+      <span class="layer-desc">Priority drainage area</span>
+    </span>
+  </label>
+
+  <label class="layer-row" id="toggle-gi-row">
+    <input type="checkbox" id="toggle-gi">
+    <span class="layer-swatch">
+      <span class="legend-gi"></span>
+    </span>
+    <span class="layer-info">
+      <span class="layer-name">City Green Infrastructure</span>
+      <span class="layer-desc">DEP green infrastructure assets</span>
+    </span>
+  </label>
+
+  <label class="layer-row" id="toggle-sewersheds-row">
+    <input type="checkbox" id="toggle-sewersheds">
+    <span class="layer-swatch">
+      <span class="legend-sewershed"></span>
+    </span>
+    <span class="layer-info">
+      <span class="layer-name">OH 06 Sewer Shed</span>
+      <span class="layer-desc">Full sewershed boundary</span>
+    </span>
+  </label>
+
+  <div class="dot-sizes">
+    <span class="dot-size-label">Dot size = gallons diverted:</span>
+    <span class="legend-dot small"></span> <small>&lt;500</small>
+    <span class="legend-dot medium"></span> <small>500–5k</small>
+    <span class="legend-dot large"></span> <small>5k+</small>
+  </div>
 </div>
 
 <!-- Mobile Info Button -->
@@ -57,8 +101,8 @@
   <div class="info-item"><span class="legend-dot medium"></span> Medium Blue Dot: 501–5,000 gal</div>
   <div class="info-item"><span class="legend-dot large"></span> Large Blue Dot: 5,000+ gal</div>
   <div class="info-item"><span class="legend-cso"></span> CSO Outfall</div>
-  <div class="info-item"><span class="legend-drainage"></span> Drainage Area</div>
-  <div class="info-item"><span class="legend-sewershed"></span> Gowanus Sewershed</div>
+  <div class="info-item"><span class="legend-gi"></span> City Green Infrastructure</div>
+  <div class="info-item"><span class="legend-sewershed"></span> OH 06 Sewer Shed</div>
 </div>
 
 

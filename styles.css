@@ -2,8 +2,88 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: sans-serif;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
 }
+
+/* === Header Bar === */
+#header-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1c88f6;
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.header-subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.stat-tagline {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  margin-top: 1px;
+}
+
+/* === Hover Tooltips === */
+.hover-tooltip .mapboxgl-popup-content {
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.tooltip-hint {
+  font-size: 10px;
+  color: #1c88f6;
+  font-style: italic;
+}
+
+/* === Map fills below header === */
 #map {
   position: absolute;
   top: 0;
@@ -11,67 +91,122 @@ body, html {
   width: 100%;
 }
 
-/* Sidebar */
-#sidebar {
-  position: absolute;
-  bottom: 25px;
-  left: 20px;
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-  font-size: 12px;
-  z-index: 2;
+/* Push map below header using JS-set top, but CSS fallback */
+#map {
+  top: 56px; /* approximate header height fallback */
 }
 
-/* Floating Title / CTA */
-#title-box {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 450px;
-  background: rgba(255,255,255,0.95);
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
-  z-index: 2;
-}
-
-#title-box h2 {
-  margin: 0 0 6px 0;
-  font-size: 25px;
-  color: #1c88f6;
-}
-
-#title-box p {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-/* Legend */
-#legend {
+/* === Unified Legend + Layer Panel === */
+#legend-panel {
   position: absolute;
   bottom: 30px;
   right: 20px;
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
+  width: 230px;
+  background: rgba(255,255,255,0.97);
+  padding: 14px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
   font-size: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  z-index: 2;
 }
 
+#legend-panel h4 {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Each layer row is a clickable toggle */
+.layer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-bottom: 2px;
+}
+
+.layer-row:hover {
+  background: rgba(28, 136, 246, 0.06);
+}
+
+.layer-row input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: #1c88f6;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.layer-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.layer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.layer-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.layer-desc {
+  font-size: 10px;
+  color: #888;
+  line-height: 1.2;
+}
+
+/* Dot size reference at bottom of panel */
+.dot-sizes {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.dot-size-label {
+  width: 100%;
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.dot-sizes small {
+  font-size: 10px;
+  color: #888;
+  margin-right: 4px;
+}
+
+/* Swatch styles */
 .legend-dot {
   display: inline-block;
   width: 12px;
   height: 12px;
   background: #1c88f6;
   border-radius: 50%;
-  margin-right: 5px;
+  vertical-align: middle;
 }
-.legend-dot.small { width: 6px; height: 6px; }
-.legend-dot.medium { width: 10px; height: 10px; }
-.legend-dot.large { width: 14px; height: 14px; }
+.legend-dot.small { width: 8px; height: 8px; }
+.legend-dot.medium { width: 13px; height: 13px; }
+.legend-dot.large { width: 17px; height: 17px; }
 
 .legend-cso {
   display: inline-block;
@@ -79,171 +214,59 @@ body, html {
   height: 12px;
   background: #999;
   border-radius: 50%;
-  margin-right: 5px;
 }
 
 .legend-drainage {
   display: inline-block;
   width: 12px;
   height: 12px;
-  background: linear-gradient(90deg, #fed976 0%, #feb24c 50%, #fd8d3c 100%);
-  border: 1px solid #fff;
+  background: #feb24c;
+  border: 2px solid #e6550d;
   border-radius: 2px;
-  margin-right: 5px;
 }
 
+.legend-gi {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+}
 
-/* Add Gowanus Sewershed to Legend */
 .legend-sewershed {
   display: inline-block;
   width: 12px;
   height: 12px;
   background: #b3cde3;
-  border: 1px solid #2b8cbe;
-  margin-right: 5px;
+  border: 1.5px solid #2b8cbe;
+  border-radius: 2px;
 }
-
-/* === Gallon Counter (Top Right) === */
-#gallon-counter {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #1c88f6;
-  border-radius: 10px;
-  padding: 15px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  text-align: right;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  z-index: 2;
-  width: 240px;
-  border-top: 5px solid #1c88f6;
-}
-
-.counter-label {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #fff;
-  margin-bottom: 5px;
-}
-
-#counter-number {
-  font-size: 26px;
-  font-weight: 700;
-  color: #fff;
-  transition: all 0.5s ease-in-out;
-}
-
-.counter-sub {
-  font-size: 12px;
-  color: #fff;
-  font-style: italic;
-  margin-top: 4px;
-}
-
 
 /* ============================
-   📱 MOBILE RESPONSIVE
+   MOBILE RESPONSIVE
    ============================ */
 @media (max-width: 600px) {
 
-  #title-box {
-    width: 90%;
-    left: 5%;
-    top: 10px;
-    padding: 12px;
+  #header-bar {
+    padding: 8px 14px;
   }
 
-  #title-box h2 {
-    font-size: 18px;
-  }
+  .header-title { font-size: 17px; }
+  .header-subtitle { font-size: 11px; }
 
-  #title-box p {
-    font-size: 11px;
-  }
+  .stat-number { font-size: 22px; }
+  .stat-label { font-size: 9px; }
+  .stat-tagline { display: none; }
 
-  #sidebar {
-    bottom: 15px;
-    left: 10px;
-    right: 10px;
-    max-width: unset;
-    width: calc(100% - 20px);
-    font-size: 11px;
-    padding: 8px;
-  }
-
-  #legend {
-    bottom: 15px;
-    right: 10px;
-    font-size: 11px;
-    padding: 8px;
-  }
-
-  #gallon-counter {
-    top: auto;
-    bottom: 110px;
-    left: 10px;
-    width: calc(100% - 20px);
-    padding: 12px 15px;
-  }
-
-  #counter-number {
-    font-size: 20px;
-  }
-
-  @media (max-width: 600px) {
-
-  /* TITLE */
-  #title-box {
-    width: 65%;
-    left: 10px;
-    top: 10px;
-    padding: 12px;
-  }
-
-  #title-box h2 { font-size: 18px; }
-  #title-box p  { font-size: 12px; }
-
-  /* GALLON COUNTER — smaller, NOT full width */
-  #gallon-counter {
-    top: 70px;
-    left: 10px;
-    width: 180px;      /* fixed small card */
-    height: 60px;
-    padding: 10px 12px;
-  }
-
-  #counter-number { font-size: 20px; }
-
-  /* SIDEBAR — keep small bottom card */
-  #sidebar {
-    bottom: 20px;
-    left: 10px;
-    width: 150px;       /* fixed width so it doesn't stretch */
-    padding: 10px;
-    font-size: 11px;
-  }
-
-  /* LEGEND — stays bottom right */
-  #legend {
-    bottom: 20px;
-    right: 10px;
-    width: auto;
-    max-width: 180px;
-    font-size: 11px;
-    padding: 8px;
+  /* Hide desktop legend panel on mobile */
+  #legend-panel {
+    display: none;
   }
 }
 
-}
-
 /* ============================
-   📱 MOBILE INFO BUTTON
+   MOBILE INFO BUTTON
    ============================ */
-/* ============================
-   📱 MOBILE INFO (LEGEND STYLE)
-   ============================ */
-
 #map-info-btn {
   display: none;
 }
@@ -279,7 +302,7 @@ body, html {
     width: 200px;
     background: white;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 12px;
     box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     z-index: 3;
@@ -300,18 +323,4 @@ body, html {
   .info-item span {
     margin-right: 6px;
   }
-}
-
-
-
-/* ============================
-   📱 MOBILE: HIDE CONTROLS
-   ============================ */
-@media (max-width: 600px) {
-
-  #sidebar,
-  #legend {
-    display: none;
-  }
-
 }
