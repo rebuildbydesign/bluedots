@@ -26,70 +26,82 @@
 
 <!-- Unified Legend + Layer Panel -->
 <div id="legend-panel">
-  <h4>Map Layers</h4>
+  <div class="legend-header">
+    <h4>Map Layers</h4>
+    <button id="legend-minimize" aria-label="Minimize layers panel" title="Minimize">&minus;</button>
+  </div>
 
-  <label class="layer-row" id="toggle-bluedots-row">
-    <input type="checkbox" id="toggle-bluedots" checked>
-    <span class="layer-swatch">
-      <span class="legend-dot medium"></span>
-    </span>
-    <span class="layer-info">
-      <span class="layer-name">Blue Dots</span>
-      <span class="layer-desc">Resident stormwater projects</span>
-    </span>
-  </label>
+  <div id="legend-body">
+    <label class="layer-row" id="toggle-bluedots-row">
+      <input type="checkbox" id="toggle-bluedots" checked>
+      <span class="layer-swatch">
+        <span class="legend-dot medium"></span>
+      </span>
+      <span class="layer-info">
+        <span class="layer-name">Blue Dots</span>
+        <span class="layer-desc">Resident stormwater projects</span>
+      </span>
+    </label>
 
-  <label class="layer-row" id="toggle-outfalls-row">
-    <input type="checkbox" id="toggle-outfalls" checked>
-    <span class="layer-swatch">
-      <span class="legend-cso"></span>
-    </span>
-    <span class="layer-info">
-      <span class="layer-name">CSO Outfalls</span>
-      <span class="layer-desc">Combined sewer overflow points</span>
-    </span>
-  </label>
+    <label class="layer-row" id="toggle-outfalls-row">
+      <input type="checkbox" id="toggle-outfalls" checked>
+      <span class="layer-swatch">
+        <span class="legend-cso"></span>
+      </span>
+      <span class="layer-info">
+        <span class="layer-name">CSO Outfalls</span>
+        <span class="layer-desc">Combined sewer overflow points</span>
+      </span>
+    </label>
 
-  <label class="layer-row" id="toggle-drainage-row">
-    <input type="checkbox" id="toggle-drainage" checked>
-    <span class="layer-swatch">
-      <span class="legend-drainage"></span>
-    </span>
-    <span class="layer-info">
-      <span class="layer-name">OH-006 Drainage</span>
-      <span class="layer-desc">Priority drainage area</span>
-    </span>
-  </label>
+    <label class="layer-row" id="toggle-drainage-row">
+      <input type="checkbox" id="toggle-drainage" checked>
+      <span class="layer-swatch">
+        <span class="legend-drainage"></span>
+      </span>
+      <span class="layer-info">
+        <span class="layer-name">OH-006 Drainage</span>
+        <span class="layer-desc">Priority drainage area</span>
+      </span>
+    </label>
 
-  <label class="layer-row" id="toggle-gi-row">
-    <input type="checkbox" id="toggle-gi">
-    <span class="layer-swatch">
-      <span class="legend-gi"></span>
-    </span>
-    <span class="layer-info">
-      <span class="layer-name">City Green Infrastructure</span>
-      <span class="layer-desc">DEP green infrastructure assets</span>
-    </span>
-  </label>
+    <label class="layer-row" id="toggle-gi-row">
+      <input type="checkbox" id="toggle-gi">
+      <span class="layer-swatch">
+        <span class="legend-gi"></span>
+      </span>
+      <span class="layer-info">
+        <span class="layer-name">City Green Infrastructure</span>
+        <span class="layer-desc">DEP green infrastructure assets</span>
+      </span>
+    </label>
 
-  <label class="layer-row" id="toggle-sewersheds-row">
-    <input type="checkbox" id="toggle-sewersheds">
-    <span class="layer-swatch">
-      <span class="legend-sewershed"></span>
-    </span>
-    <span class="layer-info">
-      <span class="layer-name">OH 06 Sewer Shed</span>
-      <span class="layer-desc">Full sewershed boundary</span>
-    </span>
-  </label>
+    <label class="layer-row" id="toggle-sewersheds-row">
+      <input type="checkbox" id="toggle-sewersheds">
+      <span class="layer-swatch">
+        <span class="legend-sewershed"></span>
+      </span>
+      <span class="layer-info">
+        <span class="layer-name">OH 06 Sewer Shed</span>
+        <span class="layer-desc">Full sewershed boundary</span>
+      </span>
+    </label>
 
-  <div class="dot-sizes">
-    <span class="dot-size-label">Dot size = gallons diverted:</span>
-    <span class="legend-dot small"></span> <small>&lt;500</small>
-    <span class="legend-dot medium"></span> <small>500–5k</small>
-    <span class="legend-dot large"></span> <small>5k+</small>
+    <div class="dot-sizes">
+      <span class="dot-size-label">Dot size = gallons diverted:</span>
+      <span class="legend-dot small"></span> <small>&lt;500</small>
+      <span class="legend-dot medium"></span> <small>500–5k</small>
+      <span class="legend-dot large"></span> <small>5k+</small>
+    </div>
+
+    <div class="legend-credit">
+      Map Created By: <a href="https://judyhuynh.ca" target="_blank" rel="noopener">Judy Huynh</a>
+    </div>
   </div>
 </div>
+
+<!-- Minimized legend button (hidden by default) -->
+<button id="legend-restore" aria-label="Show layers panel" title="Map Layers">Layers</button>
 
 <!-- Mobile Info Button -->
 <button id="map-info-btn" aria-label="Map info">ⓘ</button>

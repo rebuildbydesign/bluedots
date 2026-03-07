@@ -303,6 +303,23 @@ map.on('load', () => {
     hoverPopup.remove();
   });
 
+  // CSO Outfalls hover
+  ['outfalls-oh', 'outfalls-other'].forEach(layerId => {
+    map.on('mouseenter', layerId, e => {
+      map.getCanvas().style.cursor = 'pointer';
+      const p = e.features[0].properties;
+      hoverPopup
+        .setLngLat(e.lngLat)
+        .setHTML(`<strong>${p.spdes}</strong><br>${p.Waterbody || 'CSO Outfall'}<br><span class="tooltip-hint">Click for details</span>`)
+        .addTo(map);
+    });
+
+    map.on('mouseleave', layerId, () => {
+      map.getCanvas().style.cursor = '';
+      hoverPopup.remove();
+    });
+  });
+
   // === Toggle Layer Visibility ===
 
   // OH 06 Sewer Shed toggle
@@ -357,6 +374,21 @@ map.on('load', () => {
         counterEl.textContent = Math.floor(current).toLocaleString('en-US');
       }, 20);
     });
+
+  // === Legend Panel Minimize / Restore ===
+  const legendPanel = document.getElementById('legend-panel');
+  const legendMinimize = document.getElementById('legend-minimize');
+  const legendRestore = document.getElementById('legend-restore');
+
+  legendMinimize.onclick = () => {
+    legendPanel.classList.add('minimized');
+    legendRestore.classList.add('visible');
+  };
+
+  legendRestore.onclick = () => {
+    legendPanel.classList.remove('minimized');
+    legendRestore.classList.remove('visible');
+  };
 
   // === Mobile Info Popup Toggle ===
   const infoBtn = document.getElementById('map-info-btn');

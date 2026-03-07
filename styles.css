@@ -108,15 +108,98 @@ body, html {
   box-shadow: 0 1px 6px rgba(0,0,0,0.2);
   font-size: 12px;
   z-index: 2;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
-#legend-panel h4 {
-  margin: 0 0 10px 0;
+#legend-panel.minimized {
+  display: none;
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.legend-header h4 {
+  margin: 0;
   font-size: 13px;
   font-weight: 700;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+#legend-minimize {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 1;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  padding: 0;
+}
+
+#legend-minimize:hover {
+  background: #f0f0f0;
+  color: #333;
+  border-color: #bbb;
+}
+
+/* Minimized restore button */
+#legend-restore {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  z-index: 2;
+  background: rgba(255,255,255,0.97);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  transition: all 0.15s;
+}
+
+#legend-restore:hover {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+#legend-restore.visible {
+  display: block;
+}
+
+/* Credit line */
+.legend-credit {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  font-size: 10px;
+  color: #999;
+}
+
+.legend-credit a {
+  color: #1c88f6;
+  text-decoration: none;
+}
+
+.legend-credit a:hover {
+  text-decoration: underline;
 }
 
 /* Each layer row is a clickable toggle */
